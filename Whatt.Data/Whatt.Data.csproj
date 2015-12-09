@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8C00E8F8-204A-4BA1-A9EF-F6B5FF8F0B31}</ProjectGuid>
+    <ProjectGuid>{839C92CB-23B2-4DBE-A884-FFB9BB5D5CB1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Whatt.Core</RootNamespace>
-    <AssemblyName>Whatt.Core</AssemblyName>
+    <RootNamespace>Whatt.Data</RootNamespace>
+    <AssemblyName>Whatt.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,11 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RiskManagement.cs" />
+    <Compile Include="BetslipRepository.cs" />
+    <Compile Include="IBetslipRepository.cs" />
+    <Compile Include="Model\Betslip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Enums\" />
+    <None Include="Files\Settled.csv" />
+    <None Include="Files\Unsettled.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

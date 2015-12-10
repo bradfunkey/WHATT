@@ -19,11 +19,13 @@ namespace Whatt.Data.Model
 		}
 		
 		public virtual Dictionary<long, decimal?> SettledCustomerAverageWinDictAll { get; set; }
+		
 		public virtual Dictionary<long, decimal?> SettledCustomerAverageWinDictAlert { get; set; }
+		
 		public virtual Dictionary<long, decimal> SettledCustomerAverageStakeDict { get; set; }
-
+		
 		public virtual List<BetSlip> SettledBetSlips { get; set; }
-
+		
 		public virtual List<BetSlip> UnSettledBetSlips { get; set; }
 		
 	}

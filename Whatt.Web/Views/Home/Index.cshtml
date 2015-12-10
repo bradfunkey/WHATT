@@ -1,45 +1,117 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>
-        </div>
-    </section>
-}
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
-    </li>
+﻿@using System.Web.Script.Serialization;
+@using Whatt.Web.HtmlHelpers
+@model Whatt.Web.Models.DashboardModel
 
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
+@{
+    ViewBag.Title = "Risk Dashboard";
+}
 
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
+<script>
+    @Html.KnockoutViewModelFrom(Model)
+</script>
+
+<h3>Risk Codes:</h3>
+<ol>
+    <li>A customer wins on more than 60% of their bets</li>
+    <li>Bets where the stake is more than 10 times higher than that customer’s average bet</li>
+    <li>Bets where the stake is more than 30 times higher than that customer’s average bet</li>
+    <li>Bets where the amount to be won is $1000 or more</li>
 </ol>
+
+<h3>Risky Punters</h3>
+<small>Customer's with Average Wins over 60%</small>
+<table>
+    <tr>
+        <th>Customer</th>
+        <th>Avg Win %</th>
+    </tr>
+   
+    <tbody data-bind="foreach: riskyPunters">
+        <tr>
+            <td data-bind="text: $data.key "></td>
+            <td data-bind="text: $data.value "></td>
+        </tr>
+
+    </tbody>
+</table>
+
+<table>
+
+    <tr>
+
+        <td style="vertical-align:top">
+            <section class="contact">
+                <header>
+                    <h3>Settled Bets</h3>
+                </header>
+                <table>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Event</th>
+                        <th>Participant</th>
+                        <th>Stake</th>
+                        <th>Win</th>
+                        <th>Risk Codes</th>
+                    </tr>
+
+                    <!-- ko foreach: settledBetSlips -->
+                    <tr>
+                        <td data-bind="text: customer"></td>
+                        <td data-bind="text: event"></td>
+                        <td data-bind="text: participant"></td>
+                        <td data-bind="text: stake"></td>
+                        <td data-bind="text: win"></td>
+                        <td data-bind="foreach: riskWarningTypes">
+                            <span data-bind="text: $data"></span>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+
+                </table>
+            </section>
+
+        </td>
+        <td style="vertical-align:top">
+            <section class="contact">
+                <header>
+                    <h3>UnSettled Bets</h3>
+                </header>
+                <table>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Event</th>
+                        <th>Participant</th>
+                        <th>Stake</th>
+                        <th>To Win</th>
+                        <th>Risk Codes</th>
+                    </tr>
+
+                    <!-- ko foreach: unSettledBetSlips -->
+                    <tr>
+                        <td data-bind="text: customer"></td>
+                        <td data-bind="text: event"></td>
+                        <td data-bind="text: participant"></td>
+                        <td data-bind="text: stake"></td>
+                        <td data-bind="text: toWin"></td>
+                        <td data-bind="foreach: riskWarningTypes">
+                            <span data-bind="text: $data"></span>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+
+                </table>
+            </section>
+
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+@section scripts
+{
+    <script language="javascript" type="text/javascript" src='@Url.Content("~/scripts/views/home.index.ko.js")'></script>
+
+}

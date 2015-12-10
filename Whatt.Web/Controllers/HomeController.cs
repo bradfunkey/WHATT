@@ -22,8 +22,9 @@ namespace Whatt.Web.Controllers
 		{
 			var model = new DashboardModel();
 			string pathToSettled = HttpContext.Server.MapPath("~/App_Data/files/settled.csv");
-			string pathToUnsettled = HttpContext.Server.MapPath("~/App_Data/files/unsettled.csv");
 			string[] settledContents = System.IO.File.ReadAllLines(pathToSettled);
+
+			string pathToUnsettled = HttpContext.Server.MapPath("~/App_Data/files/unsettled.csv");			
 			string[] unSettledContents = System.IO.File.ReadAllLines(pathToUnsettled);
 
 			var settledDtoList = parser.ParseBetSlipCSV(settledContents, Common.Enums.BetSlipType.Settled).ToList();
@@ -39,9 +40,10 @@ namespace Whatt.Web.Controllers
 			model.UnSettledBetSlips = (from c in riskResult.UnSettledBetSlips
 									 select mapper.CreateBetSlipModel(c)).ToList();
 
-			
+			model.SettledCustomerAverageStakeDict = riskResult.SettledCustomerAverageStakeDict;
+			model.SettledCustomerAverageWinDictAlert = riskResult.SettledCustomerAverageWinDictAlert;
 
-			return View();
+			return View(model);
 		}
 
 		public ActionResult About()

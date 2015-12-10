@@ -18,7 +18,8 @@ namespace Whatt.Web.Models.TypeMappers
 				Participant = dto.Participant,
 				Stake = dto.Stake,
 				ToWin = dto.ToWin,
-				Win = dto.Win
+				Win = dto.Win,
+				RiskWarningTypes = dto.RiskWarningTypes
 			};
 		}
 
@@ -31,7 +32,8 @@ namespace Whatt.Web.Models.TypeMappers
 				Participant = model.Participant,
 				Stake = model.Stake,
 				ToWin = model.ToWin,
-				Win = model.Win
+				Win = model.Win,
+				RiskWarningTypes = model.RiskWarningTypes
 			};
 		}
 	}

@@ -17,7 +17,6 @@ namespace Whatt.Core
 			var result = new RiskAssessmentResult();
 			//Rules
 			//1. A customer wins on more than 60% of their bets
-
 			//2. Bets where the stake is more than 10 times higher than that customer’s average bet in their betting history should be highlighted as unusual ) 
 			//3. Bets where the stake is more than 30 times higher than that customer’s average bet in their betting history should be highlighted as highly unusual 
 			//4. Bets where the amount to be won is $1000 or more
@@ -25,11 +24,11 @@ namespace Whatt.Core
 
 			//first get all the customer ID's from each list
 			long[] settledCustomerIds = settledList.AsEnumerable()
-				  .Select(r => r.Customer)
+				  .Select(r => r.Customer).Distinct()
 				  .ToArray();
 
 			long[] unSettledCustomerIds = unsettledList.AsEnumerable()
-				  .Select(r => r.Customer)
+				  .Select(r => r.Customer).Distinct()
 				  .ToArray();
 			
 			//now get the average stake for each customer's settled bets 
@@ -97,6 +96,7 @@ namespace Whatt.Core
 			foreach (long customer in settledCustomerIds)
 			{
 				betSlipsAverage = settledList.Where(o => o.Customer == customer).Average(o => o.Win);
+				betSlipsAverage = decimal.Round(betSlipsAverage.Value, 2);
 				settledCustomerAverageWinDict.Add(customer, betSlipsAverage);
 			}
 			return settledCustomerAverageWinDict;
@@ -110,6 +110,7 @@ namespace Whatt.Core
 			foreach (long customer in settledCustomerIds)
 			{
 				betSlipsAverage = settledList.Where(o => o.Customer == customer).Average(o => o.Stake);
+				betSlipsAverage = decimal.Round(betSlipsAverage, 2);
 				settledCustomerAverageStakeDict.Add(customer, betSlipsAverage);
 			}
 			return settledCustomerAverageStakeDict;

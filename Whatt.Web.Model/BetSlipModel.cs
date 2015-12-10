@@ -10,6 +10,12 @@ namespace Whatt.Web.Models
 {
 	public class BetSlipModel
 	{
+		public BetSlipModel()
+		{
+			RiskWarningTypes = new List<int>();
+		}
+
+
 		[Display(Name = "Customer #")]
 		public long Customer { get; set; }
 
@@ -35,5 +41,7 @@ namespace Whatt.Web.Models
 				return ToWin.HasValue && ToWin != decimal.Zero ? BetSlipType.UnSettled : BetSlipType.Settled;
 			}
 		}
+
+		public virtual List<int> RiskWarningTypes { get; set; }
 	}
 }

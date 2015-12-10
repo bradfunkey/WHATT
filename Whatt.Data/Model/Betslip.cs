@@ -13,7 +13,6 @@ namespace Whatt.Data.Model
 		{
 			RiskWarningTypes = new List<int>();
 		}
-		//Customer,Event,Participant,Stake,Win, ToWin
 
 		//Using one class to represent both record types.
 
@@ -23,7 +22,6 @@ namespace Whatt.Data.Model
 		public virtual decimal Stake { get; set; }
 		public virtual decimal? Win { get; set; }
 		public virtual decimal? ToWin { get; set; }
-
 		public virtual List<int> RiskWarningTypes { get; set; }
 	}
 }

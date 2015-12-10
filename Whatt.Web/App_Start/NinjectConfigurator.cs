@@ -40,8 +40,7 @@ namespace WHATT.App_Start
 		private void AddBindings(IKernel container)
 		{
 			 //ConfigureLog4net(container);
-
-			container.Bind<IBetSlipRepository>().To<BetSlipRepository>();
+			 
 			container.Bind<IBetSlipMapper>().To<BetSlipMapper>();
 			container.Bind<IRiskManagement>().To<RiskManagement>();
 			container.Bind<IDashboardManager>().To<DashboardManager>();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace Whatt.Data
 {
-	interface IBetslipRepository
+	public interface IBetSlipRepository
 	{
 		IList<string> GetAllDataFiles();
 		IList<Whatt.Data.Model.BetSlip> GetAllSettledSlips(string fileName);

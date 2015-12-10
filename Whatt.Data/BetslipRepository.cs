@@ -8,7 +8,7 @@ using Whatt.Data.Model;
 
 namespace Whatt.Data
 {
-    public class BetSlipRepository : IBetslipRepository
+    public class BetSlipRepository : IBetSlipRepository
     {
 		 public BetSlipRepository()
 		 { 

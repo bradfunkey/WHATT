@@ -536,7 +536,7 @@ table {
 
 th {
     font-size: 1.2em;
-    text-align: left;
+    text-align: right;
     border: none 0px;
     padding-left: 1em;
 }
@@ -580,7 +580,8 @@ th {
 td {
     padding: 0.1em 2em 0.25em 0em;
     border: 0 none;
-	 text-align: right;
+	 text-align: center;
+	 vertical-align: top;
 }
 
 tr.pager td {

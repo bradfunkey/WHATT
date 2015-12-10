@@ -8,19 +8,19 @@ using Whatt.Common.Enums;
 
 namespace Whatt.Core
 {
-	public class RiskManagement
+	public class RiskManagement : IRiskManagement
 	{
 		private int _rule1Percentage = 60; //todo: allow this to be configured?
 
 		public RiskAssessmentResult ProcessRiskRules(List<BetSlip> settledList, List<BetSlip> unsettledList)
-		{
-			var result = new RiskAssessmentResult();
+		{			
 			//Rules
 			//1. A customer wins on more than 60% of their bets
 			//2. Bets where the stake is more than 10 times higher than that customer’s average bet in their betting history should be highlighted as unusual ) 
 			//3. Bets where the stake is more than 30 times higher than that customer’s average bet in their betting history should be highlighted as highly unusual 
 			//4. Bets where the amount to be won is $1000 or more
 
+			var result = new RiskAssessmentResult();
 
 			//first get all the customer ID's from each list
 			long[] settledCustomerIds = settledList.AsEnumerable()

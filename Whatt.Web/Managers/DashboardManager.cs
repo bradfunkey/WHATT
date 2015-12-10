@@ -28,16 +28,30 @@ namespace WHATT.Managers
 		}
 
 
+		/// <summary>
+		/// Loads the model from the file paths
+		/// </summary>
+		/// <param name="pathToSettled"></param>
+		/// <param name="pathToUnSettled"></param>
+		/// <returns></returns>
 		public DashboardModel LoadModel(string pathToSettled, string pathToUnSettled)
 		{
-			return ProcessDataFiles(pathToSettled, pathToUnSettled);
-		}
-
-		private DashboardModel ProcessDataFiles(string pathToSettled, string pathToUnSettled)
-		{
-			var model = new DashboardModel();
 			string[] settledContents = System.IO.File.ReadAllLines(pathToSettled);
 			string[] unSettledContents = System.IO.File.ReadAllLines(pathToUnSettled);
+
+			return LoadModel(settledContents, unSettledContents);
+		}
+
+		
+		/// <summary>
+		/// loads the model from the file contents as a string array.
+		/// </summary>
+		/// <param name="settledContents"></param>
+		/// <param name="unSettledContents"></param>
+		/// <returns></returns>
+		public DashboardModel LoadModel(string[] settledContents, string[] unSettledContents)
+		{
+			var model = new DashboardModel();
 			var settledDtoList = _parser.ParseBetSlipCSV(settledContents, BetSlipType.Settled).ToList();
 			var unSettledDtoList = _parser.ParseBetSlipCSV(unSettledContents, BetSlipType.UnSettled).ToList();
 
@@ -54,6 +68,8 @@ namespace WHATT.Managers
 
 			return model;
 		}
+
+		
 
 	}
 }

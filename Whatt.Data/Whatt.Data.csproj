@@ -39,8 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BetSlipRepository.cs" />
-    <Compile Include="IBetSlipRepository.cs" />
     <Compile Include="Model\RiskAssessmentResult.cs" />
     <Compile Include="Model\BetSlip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

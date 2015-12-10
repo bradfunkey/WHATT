@@ -43,9 +43,7 @@
     <Compile Include="RiskManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Whatt.Common\Whatt.Common.csproj">
       <Project>{51a94307-c3da-4a92-8c12-5359fa4d70cf}</Project>

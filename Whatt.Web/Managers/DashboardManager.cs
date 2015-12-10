@@ -38,8 +38,8 @@ namespace WHATT.Managers
 			var model = new DashboardModel();
 			string[] settledContents = System.IO.File.ReadAllLines(pathToSettled);
 			string[] unSettledContents = System.IO.File.ReadAllLines(pathToUnSettled);
-			var settledDtoList = ParseBetSlipCSV(settledContents, BetSlipType.Settled).ToList();
-			var unSettledDtoList = ParseBetSlipCSV(unSettledContents, BetSlipType.UnSettled).ToList();
+			var settledDtoList = _parser.ParseBetSlipCSV(settledContents, BetSlipType.Settled).ToList();
+			var unSettledDtoList = _parser.ParseBetSlipCSV(unSettledContents, BetSlipType.UnSettled).ToList();
 
 			var riskResult = _risk.ProcessRiskRules(settledDtoList, unSettledDtoList);
 
@@ -55,9 +55,5 @@ namespace WHATT.Managers
 			return model;
 		}
 
-		private IEnumerable<BetSlip> ParseBetSlipCSV(string[] fileContents, BetSlipType type)
-		{
-			return _parser.ParseBetSlipCSV(fileContents, type);		
-		}
 	}
 }

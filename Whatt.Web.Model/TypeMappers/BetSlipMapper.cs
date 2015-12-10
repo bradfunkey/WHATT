@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Whatt.Data;
 
-namespace Whatt.Web.Model.TypeMappers
+namespace Whatt.Web.Models.TypeMappers
 {
-	public class BetslipMapper : IBetslipMapper 
+	public class BetSlipMapper : IBetSlipMapper 
 	{
-		public BetSlipModel CreateBetSlipModel(Data.Model.Betslip dto)
+		public BetSlipModel CreateBetSlipModel(Data.Model.BetSlip dto)
 		{
 			return new BetSlipModel
 			{
@@ -22,9 +22,9 @@ namespace Whatt.Web.Model.TypeMappers
 			};
 		}
 
-		public Data.Model.Betslip CreateDto(BetSlipModel model)
+		public Data.Model.BetSlip CreateDto(BetSlipModel model)
 		{
-			return new Data.Model.Betslip
+			return new Data.Model.BetSlip
 			{
 				Customer = model.Customer,
 				Event = model.Event,

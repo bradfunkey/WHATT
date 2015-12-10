@@ -1,9 +1,9 @@
 ﻿using System;
-namespace Whatt.Web.Model.TypeMappers
+namespace Whatt.Web.Models.TypeMappers
 {
-	interface IBetslipMapper
+	interface IBetSlipMapper
 	{
-		Whatt.Web.Model.BetSlipModel CreateBetSlipModel(Whatt.Data.Model.Betslip dto);
-		Whatt.Data.Model.Betslip CreateDto(Whatt.Web.Model.BetSlipModel model);
+		Whatt.Web.Models.BetSlipModel CreateBetSlipModel(Whatt.Data.Model.BetSlip dto);
+		Whatt.Data.Model.BetSlip CreateDto(Whatt.Web.Models.BetSlipModel model);
 	}
 }

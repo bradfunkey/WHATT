@@ -247,6 +247,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="App_Data\Files\Settled.csv" />
+    <Content Include="App_Data\Files\Unsettled.csv" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -303,7 +305,22 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <ProjectReference Include="..\Whatt.Common\Whatt.Common.csproj">
+      <Project>{51a94307-c3da-4a92-8c12-5359fa4d70cf}</Project>
+      <Name>Whatt.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Whatt.Core\Whatt.Core.csproj">
+      <Project>{8c00e8f8-204a-4ba1-a9ef-f6b5ff8f0b31}</Project>
+      <Name>Whatt.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Whatt.Data\Whatt.Data.csproj">
+      <Project>{839c92cb-23b2-4dbe-a884-ffb9bb5d5cb1}</Project>
+      <Name>Whatt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Whatt.Web.Model\Whatt.Web.Models.csproj">
+      <Project>{ad56b023-442b-4460-be08-fc662eed4fa2}</Project>
+      <Name>Whatt.Web.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

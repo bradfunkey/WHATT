@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Whatt.Common.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Whatt.Web.Model
+namespace Whatt.Web.Models
 {
 	public class BetSlipModel
 	{
@@ -32,7 +32,7 @@ namespace Whatt.Web.Model
 		{
 			get
 			{
-				return ToWin.HasValue ? BetSlipType.UnSettled : BetSlipType.Settled;
+				return ToWin.HasValue && ToWin != decimal.Zero ? BetSlipType.UnSettled : BetSlipType.Settled;
 			}
 		}
 	}

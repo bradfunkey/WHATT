@@ -32,8 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -44,6 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Whatt.Common\Whatt.Common.csproj">
+      <Project>{51a94307-c3da-4a92-8c12-5359fa4d70cf}</Project>
+      <Name>Whatt.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Whatt.Data\Whatt.Data.csproj">
+      <Project>{839c92cb-23b2-4dbe-a884-ffb9bb5d5cb1}</Project>
+      <Name>Whatt.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

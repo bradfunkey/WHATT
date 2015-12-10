@@ -4,7 +4,8 @@ namespace Whatt.Data
 {
 	interface IBetslipRepository
 	{
-		IList<Whatt.Data.Model.Betslip> GetAllSettledSlips();
-		IList<Whatt.Data.Model.Betslip> GetAllUnsettledSlips();
+		IList<string> GetAllDataFiles();
+		IList<Whatt.Data.Model.BetSlip> GetAllSettledSlips(string fileName);
+		IList<Whatt.Data.Model.BetSlip> GetAllUnsettledSlips(string fileName);
 	}
 }

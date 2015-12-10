@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashboardModel.cs" />
     <Compile Include="BetSlipModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeMappers\BetSlipMapper.cs" />
-    <Compile Include="TypeMappers\IBetslipMapper.cs" />
+    <Compile Include="TypeMappers\IBetSlipMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Whatt.Common\Whatt.Common.csproj">

@@ -18,27 +18,53 @@
     <li>Bets where the amount to be won is $1000 or more</li>
 </ol>
 
-<h3>Risky Punters</h3>
-<small>Customer's with Average Wins over 60%</small>
 <table>
-    <tr>
-        <th>Customer</th>
-        <th>Avg Win %</th>
-    </tr>
-   
-    <tbody data-bind="foreach: riskyPunters">
-        <tr>
-            <td data-bind="text: $data.key "></td>
-            <td data-bind="text: $data.value "></td>
-        </tr>
 
-    </tbody>
+    <tr>
+
+        <td>
+            <h3>Risky Punters</h3>
+            <small>Customer's with Average Wins over 60%</small>
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Avg Win %</th>
+                </tr>
+
+                <tbody data-bind="foreach: riskyPunters">
+                    <tr>
+                        <td data-bind="text: $data.key "></td>
+                        <td data-bind="text: $data.value "></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </td>
+
+        <td>
+            <h3>Average Bets</h3>
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Avg Bets $</th>
+                </tr>
+
+                <tbody data-bind="foreach: averageStakes">
+                    <tr>
+                        <td data-bind="text: $data.key "></td>
+                        <td data-bind="text: $data.value "></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
 </table>
 
+
 <table>
-
     <tr>
-
         <td>
             <section class="contact">
                 <header>

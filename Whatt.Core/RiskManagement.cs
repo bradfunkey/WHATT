@@ -14,6 +14,9 @@ namespace Whatt.Core
 
 		public RiskAssessmentResult ProcessRiskRules(List<BetSlip> settledList, List<BetSlip> unsettledList)
 		{			
+			//TODO: Rafactor this into smaller units.
+
+
 			//Rules
 			//1. A customer wins on more than 60% of their bets
 			//2. Bets where the stake is more than 10 times higher than that customer’s average bet in their betting history should be highlighted as unusual ) 
@@ -32,8 +35,8 @@ namespace Whatt.Core
 				  .ToArray();
 			
 			//now get the average stake for each customer's settled bets 
-			var settledCustomerAverageStakeDict = GetAverageStakes(settledCustomerIds, settledList);
-
+			result.SettledCustomerAverageStakeDict = GetAverageStakes(settledCustomerIds, settledList);
+			
 			//Now we can execute the rules (finally)
 
 			//1. A customer wins on more than 60% of their bets
@@ -61,7 +64,7 @@ namespace Whatt.Core
 		
 			foreach (var slip in unsettledList)
 			{
-				foreach (var dict in settledCustomerAverageStakeDict)
+				foreach (var dict in result.SettledCustomerAverageStakeDict)
 				{
 					if (slip.Customer == dict.Key)
 					{
